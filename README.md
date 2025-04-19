@@ -128,6 +128,11 @@ Before running the project, you need to install Python and the required librarie
 ## Usage
 
 To run the fine-tuning process, execute the main Python script. You can modify the parameters within the `fine_tune_model` function call to adjust the number of epochs, the number of layers to freeze (`k`), the freezing strategy (`strategy`), and the optimizer type (`optim_type`).
+To execute the fine-tuning process with specific configurations, locate the if __name__ == '__main__': block in your Python script. Within this block, you'll find or can add the line 
+```bash
+model = fine_tune_model(10, 5, 'last', 'adam').
+``` 
+This particular configuration will initiate the training for 10 epochs, freeze the last 5 layers of the pre-trained GoogleNet model (using the 'last' strategy), and utilize the Adam optimizer for updating the model's trainable parameters. Simply running the Python script after setting these parameters will start the fine-tuning process according to your specified settings. The script will then proceed with data loading, model setup, training, validation, and finally, evaluation on the test set, displaying performance metrics and visualizations as defined in the code.
 
 ```bash
 python <your_python_script_name>.py
